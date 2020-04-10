@@ -30,3 +30,28 @@ First we will graph the histogram for the speed of the car, it is evident that t
 ```{r}
 hist(cars.data$speed, 20, col="Blue")
 ```
+
+Next we will graph the histogram for the distance of the car, it is evident that the majority of the cars have travelled a distance around 20km.
+
+```{r}
+hist(cars.data$dist, 20, col="red")
+```
+
+# Plotting a Box plot
+
+We can now plot a Box plot, which will show the variation amongst our variables. We can deduce from the graph that the speed of the car has less variation compared to distance, meaning distance has a wider range of values. 
+
+```{r}
+boxplot(cars.data, main="Box Plot", xlab="Variable", ylab="Value", col = "red", pch=19)
+```
+
+# Plotting a Scatter plot
+
+The scatter plot below suggests that there is a linear and positive correlation. Moreover, there is presence of systematic error, since the line of best fit does not pass through the origin. 
+
+```{r}
+plot(x=cars.data$speed, y=cars.data$dist, main = "Cars data Scatter plot", xlab="Speed", ylab="distance", pch=19, col="green")
+lin.mod = lm(cars.data$dist~cars.data$speed)
+pr.lm = predict(lin.mod)
+lines(pr.lm~cars.data$speed, col="blue", lwd=0.7)
+```
