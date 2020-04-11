@@ -54,4 +54,6 @@ plot(x=cars.data$speed, y=cars.data$dist, main = "Cars data Scatter plot", xlab=
 lin.mod = lm(cars.data$dist~cars.data$speed)
 pr.lm = predict(lin.mod)
 lines(pr.lm~cars.data$speed, col="blue", lwd=0.7)
+abline(mod <- lm(cars.data$dist ~cars.data$speed ))
+coef(mod) #calculate slope
 ```
